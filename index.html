@@ -1,36 +1,71 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tarjeta Digital</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CiberRifa · Rifa del reloj</title>
+<meta property="og:title" content="CiberRifa · Rifa de un reloj Paterson — 100 números">
+<meta property="og:description" content="Elige tu número del 00 al 99. Juega con la Lotería de Manizales.">
+<meta property="og:image" content="https://ciberrifa-reloj.netlify.app/imagenes/reloj.jpg">
+<meta property="og:url" content="https://ciberrifa-reloj.netlify.app/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14100c">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card">
-    <div class="profile-container">
-      <img src="imagenes/perfil.jpg" alt="Foto de perfil" class="profile-img">
-      
+<main class="pagina">
+
+  <header class="portada">
+    <p class="marca">CiberRifa</p>
+    <img id="foto" class="foto" alt="">
+    <h1 id="premio"></h1>
+    <p id="desc" class="desc"></p>
+    <div class="datos">
+      <div><span>Valor del número</span><strong id="valor"></strong></div>
+      <div><span>Sorteo</span><strong id="fecha"></strong></div>
+      <div><span>Juega con</span><strong id="loteria"></strong></div>
     </div>
-    
-    <h1>KADIR AGUIRRE  LICENCIADO FILOSOFIA Y LETRAS UNIVERSIDAD DE CALDAS COLOMBIA
-    </h1>
-    <h2>Creador Digital | Programador Web \ CLASES ON LINE:MATEMATICAS, FILOSOFIA, ESPAÑOL
-      REVISOR DE ESTILO:Redaccion,ortografia y Normas APPA </h2>
-      <h3> Contactame experto en soluciones digitales. Freelancer Fiverr.com 
-        SUECIA ESTOCOLMO \
-      </h3> <p>Construyendo puentes entre la educación, la filosofía y la tecnología.
-                          
-      </p>
- 
-    <div class="buttons">
-      <a href="https://wa.me/573025915427" target="_blank" class="btn whatsapp">WhatsApp</a>
-      <a href="tel:+573025915427" class="btn call">Llamar</a>
-      <a href="sms:+573025915427" class="btn sms">SMS</a>
-      <a href="mailto:jkaa201612@gmail.com" class="btn email">Correo</a>
-      <a href="https://www.facebook.com/kadir.aguirreaguirre" target="_blank" class="btn facebook">Facebook</a>
-      <a href="https://www.instagram.com/kadiraguirreaguirre" target="_blank" class="btn instagram">Instagram</a>
+    <div class="progreso" aria-live="polite">
+      <div class="barra"><i id="barra"></i></div>
+      <p id="textoProgreso"></p>
     </div>
-  </div>
+  </header>
+
+  <section class="panel">
+    <h2>Elige tu número</h2>
+    <p class="leyenda">
+      <span class="l libre">Libre</span><span class="l apart">Apartado</span><span class="l vend">Vendido</span><span class="l sel">Tu elección</span>
+    </p>
+    <div id="tablero" class="tablero" role="group" aria-label="Números de la rifa"></div>
+  </section>
+
+  <section class="panel info">
+    <h2>Cómo participar</h2>
+    <ol>
+      <li>Toca los números que quieras. Puedes elegir varios.</li>
+      <li>Pulsa <b>Apartar por WhatsApp</b>: se abre el chat con tu pedido ya escrito.</li>
+      <li>Haz el pago y envía el comprobante. Tu número pasa a <b>vendido</b>.</li>
+    </ol>
+    <p id="pago" class="pago"></p>
+    <h2>Cómo se decide el ganador</h2>
+    <p id="regla"></p>
+    <p id="autorizacion" class="autorizacion" hidden></p>
+    <div class="acciones"><button id="compartir" class="btn alt" type="button">🔗 Compartir esta rifa</button></div>
+    <p class="pie">Organiza: <span id="org"></span> · CiberRifa</p>
+  </section>
+
+</main>
+
+<div id="carrito" class="carrito" hidden>
+  <div><strong id="cantidad"></strong><span id="total"></span></div>
+  <a id="apartar" class="btn" target="_blank" rel="noopener">Apartar por WhatsApp</a>
+  <button id="vaciar" class="btn alt" type="button" aria-label="Quitar selección">✕</button>
+</div>
+<div id="toast" class="toast" role="status"></div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
